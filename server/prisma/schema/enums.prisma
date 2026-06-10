@@ -1,0 +1,39 @@
+// All enums in one place.
+
+enum Role {
+  ADMIN
+  MANAGER
+  AGENT
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  FOLLOW_UP
+  WON
+  LOST
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  CANCELLED
+}
+
+// Modules that per-user access can be granted on.
+enum PermissionModule {
+  LEADS
+  TASKS
+  INVOICES
+  SOURCES
+  REPORTS
+  SETTINGS
+  USERS
+}

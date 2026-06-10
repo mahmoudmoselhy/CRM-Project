@@ -1,0 +1,29 @@
+model Company {
+  id             String   @id @default(uuid())
+  name           String
+  logo           String?
+  primaryColor   String   @default("#1E2761")
+  secondaryColor String   @default("#CADCFC")
+  createdAt      DateTime @default(now())
+
+  users       User[]
+  leads       Lead[]
+  tasks       Task[]
+  leadSources LeadSource[]
+  invoices    Invoice[]
+  features    CompanyFeature[]
+}
+
+// Lightweight feature-flag / extensions system (company level).
+model CompanyFeature {
+  id        String   @id @default(uuid())
+  companyId String
+  key       String
+  enabled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, key])
+  @@index([companyId])
+}

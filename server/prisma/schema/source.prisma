@@ -1,0 +1,13 @@
+model LeadSource {
+  id         String   @id @default(uuid())
+  companyId  String
+  name       String
+  apiKey     String   @unique @default(uuid())
+  totalLeads Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  leads   Lead[]
+
+  @@index([companyId])
+}

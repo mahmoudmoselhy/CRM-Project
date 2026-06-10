@@ -1,0 +1,23 @@
+model Lead {
+  id           String     @id @default(uuid())
+  companyId    String
+  assignedTo   String?
+  sourceId     String?
+  customerName String
+  phone        String?
+  email        String?
+  status       LeadStatus @default(NEW)
+  notes        String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  company    Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  agent      User?         @relation("AssignedLeads", fields: [assignedTo], references: [id], onDelete: SetNull)
+  source     LeadSource?   @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  tasks      Task[]
+  invoices   Invoice[]
+  activities ActivityLog[]
+
+  @@index([companyId, status])
+  @@index([assignedTo])
+}

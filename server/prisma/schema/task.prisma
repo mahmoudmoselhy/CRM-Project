@@ -1,0 +1,19 @@
+model Task {
+  id         String     @id @default(uuid())
+  companyId  String
+  leadId     String?
+  assignedTo String?
+  title      String
+  notes      String?
+  dueDate    DateTime
+  status     TaskStatus @default(PENDING)
+  createdAt  DateTime   @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  lead    Lead?   @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  agent   User?   @relation("AssignedTasks", fields: [assignedTo], references: [id], onDelete: SetNull)
+
+  @@index([companyId, status])
+  @@index([assignedTo, status])
+  @@index([dueDate])
+}
