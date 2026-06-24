@@ -41,8 +41,11 @@ export default function DashboardLayout() {
   return (
     <div className="min-h-screen flex bg-slate-100">
       <aside className="w-60 bg-slate-900 text-slate-200 flex flex-col">
-        <div className="px-5 py-4 text-lg font-bold text-white border-b border-slate-700">
-          {user?.company?.name || 'CRM'}
+        <div className="px-5 py-4 border-b border-slate-700">
+          <div className="text-lg font-bold text-white">Wasl <span className="text-blue-400">CRM</span></div>
+          {user?.company?.name && (
+            <div className="text-xs text-slate-400 mt-0.5 truncate">{user.company.name}</div>
+          )}
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1">
           {links.map((n) => (

@@ -79,6 +79,9 @@ export function AuthShell({ title, subtitle, children }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100 px-4">
       <div className="w-full max-w-sm bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+        <div className="text-center mb-6">
+          <span className="inline-block text-lg font-bold text-slate-900">Wasl <span className="text-blue-600">CRM</span></span>
+        </div>
         <h1 className="text-xl font-bold text-slate-800">{title}</h1>
         <p className="text-sm text-slate-500 mb-6">{subtitle}</p>
         {children}

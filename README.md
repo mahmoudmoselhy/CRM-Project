@@ -1,4 +1,4 @@
-# Multi-Tenant CRM System — Graduation Project
+# Wasl CRM (وصل) — Graduation Project
 
 A CRM SaaS platform where multiple companies manage leads, follow-up tasks, users,
 and reports — each company's data fully isolated.

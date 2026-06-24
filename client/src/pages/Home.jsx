@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold">Multi-Tenant CRM</h1>
+        <h1 className="text-4xl font-bold">Wasl CRM</h1>
         <p className="text-slate-400">Graduation Project</p>
         <div className="text-lg">
           {isLoading && <span className="text-yellow-400">Checking API...</span>}
